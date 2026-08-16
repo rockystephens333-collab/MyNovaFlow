@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaFlow AI Receptionist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: white;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      position: sticky;
+      top: 0;
+      background: rgba(7,17,31,.95);
+      backdrop-filter: blur(10px);
+      z-index: 20;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+
+    .logo span {
+      color: #43d17c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      background: #43d17c;
+      color: #07111f;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(67,209,124,.12);
+      color: #60e194;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.03;
+      max-width: 950px;
+      margin: 0 auto 24px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      color: #b9c4d4;
+      font-size: 19px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .hero-card {
+      margin: 60px auto 0;
+      max-width: 950px;
+      padding: 26px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #0d1b2e, #0a1524);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+
+    .chat {
+      display: grid;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .bubble {
+      width: fit-content;
+      max-width: 75%;
+      padding: 13px 16px;
+      border-radius: 16px;
+    }
+
+    .customer {
+      background: #1f2d40;
+    }
+
+    .ai {
+      background: #133721;
+      margin-left: auto;
+      border: 1px solid rgba(67,209,124,.2);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 50px);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      max-width: 720px;
+      margin: 0 auto 45px;
+      text-align: center;
+      color: #aeb9c8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #0d1b2e;
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 26px;
+      border-radius: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #aeb9c8;
+      font-size: 15px;
+    }
+
+    .number {
+      font-size: 36px;
+      font-weight: 800;
+      color: #43d17c;
+      margin-bottom: 8px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: #0d1b2e;
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 24px;
+      border-radius: 18px;
+    }
+
+    .step span {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #43d17c;
+      color: #07111f;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .pricing {
+      max-width: 650px;
+      margin: auto;
+      text-align: center;
+      background: #0d1b2e;
+      border: 1px solid rgba(67,209,124,.3);
+      padding: 42px;
+      border-radius: 22px;
+    }
+
+    .price {
+      font-size: 52px;
+      font-weight: 800;
+      margin: 14px 0;
+    }
+
+    .pricing ul {
+      list-style: none;
+      margin: 25px 0;
+      display: grid;
+      gap: 12px;
+      color: #c5ceda;
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      background: #0d1b2e;
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 18px 20px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    details p {
+      color: #aeb9c8;
+      margin-top: 12px;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 90px 0;
+      background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(67,209,124,.08)
+      );
+    }
+
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      color: #7f8da1;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .bubble {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Nova<span>Flow</span></div>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a class="btn" href="#book">Book a Demo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">AI RECEPTIONIST FOR GROWING BUSINESSES</div>
+
+    <h1>Never Let Another Potential Customer Go Unanswered.</h1>
+
+    <p>
+      NovaFlow helps businesses answer customer questions, capture leads,
+      follow up, and turn more calls and messages into booked appointments —
+      even while you’re busy.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="#book">Book a Free Demo</a>
+      <a class="btn btn-outline" href="#demo">See How It Works</a>
+    </div>
+
+    <div class="hero-card" id="demo">
+      <div class="chat">
+        <div class="bubble customer">
+          Hi, how much are knotless braids?
+        </div>
+
+        <div class="bubble ai">
+          Hi! Knotless braids start at $180 and take approximately 4 hours.
+          Would you like me to help you book an appointment?
+        </div>
+
+        <div class="bubble customer">
+          Yes, do you have Friday afternoon?
+        </div>
+
+        <div class="bubble ai">
+          Absolutely. I can help check availability and get your appointment
+          scheduled.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2 class="section-title">Your Business Shouldn’t Stop When You’re Busy.</h2>
+
+    <p class="section-subtitle">
+      NovaFlow gives your business an automated receptionist that helps
+      customers get answers and take the next step without waiting on you.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="number">24/7</div>
+        <h3>Customer Responses</h3>
+        <p>
+          Help customers get answers even when you’re working, sleeping,
+          or away from your phone.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">AI</div>
+        <h3>Trained on Your Business</h3>
+        <p>
+          Your receptionist can learn your services, policies, pricing,
+          hours, booking rules, and common questions.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="number">↑</div>
+        <h3>More Opportunities</h3>
+        <p>
+          Capture interested customers before they disappear or choose
+          another business.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="container">
+    <h2 class="section-title">How NovaFlow Works</h2>
+
+    <p class="section-subtitle">
+      A simple system designed to move customers from inquiry to action.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <span>1</span>
+        <h3>Customer Reaches Out</h3>
+        <p>They call, text, DM, or submit an inquiry.</p>
+      </div>
+
+      <div class="step">
+        <span>2</span>
+        <h3>AI Responds</h3>
+        <p>The AI receptionist understands the request and answers questions.</p>
+      </div>
+
+      <div class="step">
+        <span>3</span>
+        <h3>Customer Takes Action</h3>
+        <p>They can be guided toward booking, follow-up, or the next step.</p>
+      </div>
+
+      <div class="step">
+        <span>4</span>
+        <h3>You Stay Organized</h3>
+        <p>Customer information and conversations stay inside your system.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Built Around Your Business.</h2>
+
+    <p class="section-subtitle">
+      NovaFlow is designed to work around the way your business already
+      operates instead of forcing you to start from scratch.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Calls & SMS</h3>
+        <p>Capture incoming leads and customer questions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Social Messages</h3>
+        <p>Support customer conversations from connected channels.</p>
+      </div>
+
+      <div class="card">
+        <h3>Booking Systems</h3>
+        <p>
+          Connect booking workflows and guide customers toward available
+          services and appointments.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Lead Follow-Up</h3>
+        <p>Automatically follow up with people who didn’t book immediately.</p>
+      </div>
+
+      <div class="card">
+        <h3>FAQs</h3>
+        <p>Answer repetitive customer questions without doing it manually.</p>
+      </div>
+
+      <div class="card">
+        <h3>Customer Records</h3>
+        <p>Keep track of leads, conversations, and customer information.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2 class="section-title">Get Your AI Receptionist Set Up.</h2>
+
+    <p class="section-subtitle">
+      Start with a customized system built around your business.
+    </p>
+
+    <div class="pricing">
+      <h3>NovaFlow AI Receptionist</h3>
+
+      <div class="price">$500</div>
+      <p>One-time setup</p>
+
+      <div class="price" style="font-size:38px;">$297/mo</div>
+
+      <ul>
+        <li>✓ AI receptionist setup</li>
+        <li>✓ Business knowledge training</li>
+        <li>✓ Customer inquiry automation</li>
+        <li>✓ Booking workflow setup</li>
+        <li>✓ Lead follow-up system</li>
+        <li>✓ Ongoing system access</li>
+      </ul>
+
+      <a class="btn" href="#book">Book a Consultation</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <details>
+        <summary>Will I have to replace my current booking system?</summary>
+        <p>
+          Not necessarily. NovaFlow is designed to work around your existing
+          business systems whenever the platform supports the required
+          integration.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can the AI answer questions about my business?</summary>
+        <p>
+          Yes. The receptionist can be trained on information such as your
+          services, pricing, policies, business hours, and common questions.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can it help customers book?</summary>
+        <p>
+          Yes. Booking options depend on your calendar or booking platform,
+          but NovaFlow can be configured to guide or automate the booking
+          process where supported.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is this only for beauty businesses?</summary>
+        <p>
+          No. The system can be customized for many appointment-based or
+          customer-service businesses.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="book">
+  <div class="container">
+    <h2 class="section-title">Ready to Stop Missing Potential Customers?</h2>
+
+    <p class="section-subtitle">
+      See how NovaFlow could work inside your business.
+    </p>
+
+    <a
+      class="btn"
+      href="YOUR-BOOKING-LINK-HERE"
+      target="_blank"
+    >
+      Book Your Free Demo
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 NovaFlow. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
