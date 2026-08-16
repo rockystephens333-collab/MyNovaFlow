@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>MyNovaFlow Technologies | AI Receptionist & Business Automation</title>
+  <title>MyNovaFlow | AI Receptionist & Business Automation</title>
 
-  <meta name="description"
-        content="MyNovaFlow Technologies helps service-based businesses respond to customers, capture leads, follow up and streamline appointment booking with AI automation.">
+  <meta
+    name="description"
+    content="MyNovaFlow helps service-based businesses respond faster, capture leads, follow up, and turn more customer inquiries into booked appointments."
+  />
 
   <style>
+    :root {
+      --bg: #080a12;
+      --bg-soft: #0c0f19;
+      --surface: #111522;
+      --surface-2: #161b2b;
+
+      --purple: #8a6df6;
+      --purple-dark: #6d56d9;
+      --purple-light: #c6b5ff;
+      --purple-pale: #e5ddff;
+
+      --white: #ffffff;
+      --text: #d6d8e5;
+      --muted: #989eaf;
+
+      --border: rgba(255,255,255,.08);
+      --purple-border: rgba(138,109,246,.30);
+
+      --shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,76 +43,135 @@
       scroll-behavior: smooth;
     }
 
-    :root {
-      --purple: #8b6df6;
-      --purple-dark: #6f55db;
-      --purple-light: #c5b5ff;
-      --purple-soft: rgba(139,109,246,.13);
-      --bg: #080d18;
-      --bg-soft: #0b1220;
-      --card: #111827;
-      --text: #ffffff;
-      --muted: #b8c0d0;
-      --border: rgba(255,255,255,.10);
-    }
-
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 50% -5%,
+          rgba(138,109,246,.13),
+          transparent 30%
+        ),
+        var(--bg);
+
+      color: var(--white);
+      line-height: 1.65;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
     }
 
     .container {
-      width: min(1150px, 90%);
-      margin: auto;
+      width: min(1180px, 90%);
+      margin: 0 auto;
     }
 
-    nav {
+    /* ========================
+       NAVIGATION
+    ======================== */
+
+    .navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(8,13,24,.94);
-      backdrop-filter: blur(12px);
+
       border-bottom: 1px solid var(--border);
+
+      background: rgba(8,10,18,.80);
+      backdrop-filter: blur(18px);
     }
 
-    .nav-wrap {
-      min-height: 84px;
+    .nav-inner {
+      min-height: 82px;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 25px;
+      justify-content: space-between;
+
+      gap: 24px;
     }
 
-    .logo {
-      font-size: 25px;
-      font-weight: 800;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 24px;
+      font-weight: 850;
+      letter-spacing: -.6px;
     }
 
-    .logo span {
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--purple-dark),
+          var(--purple-light)
+        );
+
+      box-shadow:
+        0 10px 30px rgba(138,109,246,.28);
+
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .brand span {
       color: var(--purple-light);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 28px;
+
       font-size: 14px;
+      color: #c9ccda;
     }
 
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    /* ========================
+       BUTTONS
+    ======================== */
+
     .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 11px;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 50px;
+
+      padding: 0 23px;
+
+      border-radius: 12px;
+
+      font-size: 15px;
+      font-weight: 750;
+
       transition: .2s ease;
-      border: 1px solid transparent;
     }
 
     .btn:hover {
@@ -97,53 +179,97 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg,var(--purple-dark),var(--purple));
       color: white;
-      box-shadow: 0 12px 35px rgba(139,109,246,.20);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--purple-dark),
+          var(--purple)
+        );
+
+      box-shadow:
+        0 14px 35px rgba(138,109,246,.20);
     }
 
-    .btn-outline {
-      border-color: rgba(255,255,255,.22);
+    .btn-secondary {
       color: white;
+
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.14);
     }
+
+    .btn-secondary:hover {
+      border-color: var(--purple-border);
+    }
+
+    /* ========================
+       HERO
+    ======================== */
 
     .hero {
+      padding: 110px 0 80px;
+
       text-align: center;
-      padding: 115px 0 100px;
-      background:
-        radial-gradient(circle at 50% 10%,
-        rgba(139,109,246,.20),
-        transparent 34%);
     }
 
-    .badge {
-      display: inline-block;
-      background: var(--purple-soft);
-      border: 1px solid rgba(197,181,255,.20);
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 14px;
+
+      border-radius: 999px;
+
+      background: rgba(138,109,246,.10);
+      border: 1px solid rgba(138,109,246,.18);
+
       color: var(--purple-light);
-      padding: 8px 16px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 25px;
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .8px;
+
+      margin-bottom: 28px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--purple-light);
+      box-shadow: 0 0 18px var(--purple);
     }
 
     .hero h1 {
-      max-width: 1000px;
+      max-width: 980px;
       margin: auto;
-      font-size: clamp(46px,7vw,80px);
-      line-height: 1.03;
-      letter-spacing: -2px;
+
+      font-size: clamp(48px, 7vw, 84px);
+      line-height: 1.02;
+
+      letter-spacing: -3.5px;
     }
 
     .hero h1 span {
-      color: var(--purple-light);
+      background:
+        linear-gradient(
+          90deg,
+          var(--purple-light),
+          var(--purple)
+        );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .hero p {
-      max-width: 780px;
-      margin: 28px auto;
-      color: var(--muted);
+    .hero-copy {
+      max-width: 760px;
+      margin: 28px auto 0;
+
+      color: var(--text);
       font-size: 19px;
     }
 
@@ -152,53 +278,273 @@
       justify-content: center;
       gap: 13px;
       flex-wrap: wrap;
-      margin-top: 32px;
+
+      margin-top: 34px;
     }
 
-    .mini {
-      color: #858fa3;
-      font-size: 14px;
+    .hero-proof {
       margin-top: 30px;
+
+      color: var(--muted);
+      font-size: 13px;
     }
+
+    /* ========================
+       HERO DASHBOARD CARD
+    ======================== */
+
+    .hero-demo {
+      max-width: 980px;
+      margin: 65px auto 0;
+
+      padding: 12px;
+
+      border-radius: 26px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(138,109,246,.18),
+          rgba(255,255,255,.03)
+        );
+
+      border: 1px solid var(--purple-border);
+
+      box-shadow: var(--shadow);
+    }
+
+    .demo-window {
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      background: #0c101b;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .demo-top {
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 18px;
+
+      border-bottom: 1px solid var(--border);
+
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .demo-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .demo-dots span {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.18);
+    }
+
+    .conversation {
+      padding: 32px;
+
+      display: grid;
+      gap: 14px;
+
+      text-align: left;
+    }
+
+    .bubble {
+      width: fit-content;
+      max-width: 76%;
+
+      padding: 14px 17px;
+
+      border-radius: 17px;
+
+      font-size: 15px;
+    }
+
+    .bubble.customer {
+      background: #202637;
+      color: #eef0f8;
+    }
+
+    .bubble.ai {
+      margin-left: auto;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(109,86,217,.32),
+          rgba(138,109,246,.15)
+        );
+
+      border: 1px solid rgba(138,109,246,.22);
+
+      color: #f2efff;
+    }
+
+    /* ========================
+       TRUST / VALUE STRIP
+    ======================== */
+
+    .value-strip {
+      padding: 0 0 60px;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+
+      border: 1px solid var(--border);
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      background: rgba(255,255,255,.02);
+    }
+
+    .value-item {
+      padding: 27px 20px;
+      text-align: center;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .value-item:last-child {
+      border-right: none;
+    }
+
+    .value-item strong {
+      display: block;
+
+      color: var(--purple-light);
+
+      font-size: 23px;
+
+      margin-bottom: 4px;
+    }
+
+    .value-item span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ========================
+       GENERAL SECTIONS
+    ======================== */
 
     section {
-      padding: 95px 0;
+      padding: 92px 0;
     }
 
     .section-label {
-      color: var(--purple-light);
       text-align: center;
+
+      color: var(--purple-light);
+
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.6px;
+
       text-transform: uppercase;
-      letter-spacing: 1.8px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 12px;
+
+      margin-bottom: 13px;
     }
 
     .section-title {
+      max-width: 800px;
+      margin: auto;
+
       text-align: center;
-      font-size: clamp(34px,5vw,50px);
-      line-height: 1.12;
-      margin-bottom: 17px;
+
+      font-size: clamp(35px, 5vw, 54px);
+      line-height: 1.08;
+
+      letter-spacing: -1.8px;
     }
 
-    .section-subtitle {
-      max-width: 760px;
-      margin: 0 auto 48px;
+    .section-copy {
+      max-width: 720px;
+      margin: 18px auto 48px;
+
       text-align: center;
+
       color: var(--muted);
       font-size: 17px;
     }
 
+    .section-dark {
+      background: var(--bg-soft);
+
+      border-top: 1px solid rgba(255,255,255,.03);
+      border-bottom: 1px solid rgba(255,255,255,.03);
+    }
+
+    /* ========================
+       CARDS
+    ======================== */
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
     .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 19px;
+      position: relative;
+
       padding: 28px;
+
+      border-radius: 19px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.01)
+        );
+
+      border: 1px solid var(--border);
+
+      transition: .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+
+      border-color: rgba(138,109,246,.25);
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 18px;
+
+      border-radius: 13px;
+
+      background: rgba(138,109,246,.12);
+
+      color: var(--purple-light);
+
+      font-size: 21px;
     }
 
     .card h3 {
-      margin-bottom: 9px;
+      margin-bottom: 8px;
+
+      font-size: 20px;
     }
 
     .card p {
@@ -206,9 +552,9 @@
       font-size: 15px;
     }
 
-    .dark-section {
-      background: var(--bg-soft);
-    }
+    /* ========================
+       WHO IT IS FOR
+    ======================== */
 
     .audience-grid {
       display: grid;
@@ -217,335 +563,556 @@
     }
 
     .audience-card {
-      text-align: center;
+      text-align: left;
     }
 
-    .audience-icon {
-      font-size: 31px;
-      margin-bottom: 13px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      background: var(--purple-soft);
-      border-radius: 13px;
-      color: var(--purple-light);
-      font-size: 22px;
-      margin-bottom: 17px;
-    }
+    /* ========================
+       HOW IT WORKS
+    ======================== */
 
     .steps {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 22px;
+      gap: 18px;
     }
 
-    .number {
-      width: 43px;
-      height: 43px;
+    .step-number {
+      width: 40px;
+      height: 40px;
+
       display: grid;
       place-items: center;
+
       border-radius: 50%;
-      background: var(--purple);
-      font-weight: 800;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--purple-dark),
+          var(--purple)
+        );
+
+      font-weight: 850;
+
       margin-bottom: 18px;
     }
 
-    .demo-box {
-      max-width: 850px;
+    /* ========================
+       LIVE DEMO
+    ======================== */
+
+    .showcase {
+      max-width: 900px;
       margin: auto;
-      text-align: center;
-      padding: 55px 30px;
-      background: var(--card);
-      border: 1px solid rgba(139,109,246,.35);
+
+      padding: 52px;
+
       border-radius: 25px;
+
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(138,109,246,.18),
+          transparent 55%
+        ),
+        var(--surface);
+
+      border: 1px solid var(--purple-border);
     }
 
-    .demo-box h2 {
-      font-size: 42px;
+    .showcase h2 {
+      font-size: clamp(35px,4.5vw,48px);
+      line-height: 1.1;
       margin-bottom: 15px;
     }
 
-    .demo-box p {
-      max-width: 650px;
+    .showcase p {
+      max-width: 660px;
       margin: 0 auto 25px;
+
       color: var(--muted);
     }
 
+    /* ========================
+       FOUNDER
+    ======================== */
+
     .founder-wrap {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.1fr .9fr;
+
       gap: 55px;
       align-items: center;
     }
 
-    .founder-copy .section-label {
+    .founder-copy .section-label,
+    .founder-copy .section-title {
       text-align: left;
-    }
-
-    .founder-copy h2 {
-      font-size: 44px;
-      line-height: 1.12;
-      margin-bottom: 20px;
+      margin-left: 0;
     }
 
     .founder-copy p {
       color: var(--muted);
-      margin-bottom: 15px;
+
+      margin-top: 15px;
     }
 
-    .founder-visual {
-      min-height: 330px;
+    .founder-box {
+      min-height: 340px;
+
       display: grid;
       place-items: center;
-      text-align: center;
+
       border-radius: 25px;
+
       padding: 35px;
+
       background:
-        linear-gradient(135deg,#655ac5,#8b6df6,#c5b5ff);
+        linear-gradient(
+          140deg,
+          #5f57bd,
+          #8768e8,
+          #bd9df5
+        );
+
+      box-shadow: var(--shadow);
     }
 
-    .founder-inside {
-      padding: 35px;
+    .founder-inner {
+      width: 100%;
+
+      padding: 38px;
+
+      text-align: center;
+
       border-radius: 18px;
-      background: rgba(8,13,24,.82);
+
+      background: rgba(8,10,18,.84);
+
+      border: 1px solid rgba(255,255,255,.07);
     }
+
+    .founder-inner h3 {
+      font-size: 30px;
+
+      margin-bottom: 6px;
+    }
+
+    .founder-inner p {
+      color: var(--purple-pale);
+    }
+
+    /* ========================
+       AFTER BOOKING TIMELINE
+    ======================== */
 
     .timeline {
-      max-width: 850px;
+      max-width: 880px;
       margin: auto;
+
       display: grid;
-      gap: 15px;
+      gap: 14px;
     }
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 55px 1fr;
+      grid-template-columns: 48px 1fr;
+
       gap: 18px;
-      align-items: start;
-      padding: 25px;
-      border-radius: 18px;
-      background: var(--card);
+
+      padding: 24px;
+
+      border-radius: 17px;
+
+      background: var(--surface);
       border: 1px solid var(--border);
     }
 
     .timeline-number {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+
       display: grid;
       place-items: center;
-      background: var(--purple-soft);
+
+      border-radius: 12px;
+
+      background: rgba(138,109,246,.13);
+
       color: var(--purple-light);
-      font-weight: 800;
+
+      font-weight: 850;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 5px;
     }
 
     .timeline-item p {
       color: var(--muted);
-      margin-top: 5px;
+      font-size: 15px;
     }
 
-    .onboarding-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
-    }
+    /* ========================
+       PRICING
+    ======================== */
 
     .pricing-card {
-      max-width: 620px;
+      max-width: 650px;
       margin: auto;
-      padding: 45px;
-      background: var(--card);
-      border: 1px solid rgba(139,109,246,.45);
-      border-radius: 25px;
+
+      overflow: hidden;
+
+      border-radius: 26px;
+
+      border: 1px solid var(--purple-border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(138,109,246,.09),
+          rgba(255,255,255,.02)
+        );
+
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-top {
+      padding: 42px;
+
       text-align: center;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-top h3 {
+      font-size: 27px;
     }
 
     .setup-price {
-      font-size: 48px;
-      font-weight: 800;
-      margin-top: 15px;
+      margin-top: 22px;
+
+      font-size: 56px;
+      font-weight: 900;
+
+      line-height: 1;
     }
 
-    .trial-badge {
+    .setup-label {
+      color: var(--muted);
+
+      margin-top: 8px;
+    }
+
+    .trial-pill {
       display: inline-block;
-      margin: 18px 0 8px;
-      padding: 8px 15px;
+
+      margin-top: 20px;
+
+      padding: 8px 14px;
+
       border-radius: 999px;
-      color: var(--purple-light);
-      background: var(--purple-soft);
-      font-weight: 700;
-    }
 
-    .monthly-price {
-      font-size: 42px;
+      background: rgba(138,109,246,.13);
+
+      color: var(--purple-light);
+
+      font-size: 13px;
       font-weight: 800;
-      margin-top: 10px;
     }
 
-    .monthly-price span {
-      font-size: 17px;
+    .monthly {
+      margin-top: 13px;
+
+      font-size: 33px;
+      font-weight: 850;
+    }
+
+    .monthly small {
       color: var(--muted);
-      font-weight: 400;
+      font-size: 15px;
+      font-weight: 500;
     }
 
-    .pricing-note {
-      color: var(--muted);
-      margin-top: 12px;
+    .pricing-body {
+      padding: 35px 42px;
     }
 
-    .price-list {
+    .pricing-list {
       list-style: none;
-      margin: 28px 0;
-      text-align: left;
+
+      display: grid;
+      gap: 12px;
+
+      margin-bottom: 28px;
     }
 
-    .price-list li {
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-      color: #d6dbea;
+    .pricing-list li {
+      display: flex;
+      gap: 10px;
+
+      color: #d9dce8;
     }
 
-    .price-list li::before {
+    .pricing-list li::before {
       content: "✓";
+
       color: var(--purple-light);
-      font-weight: bold;
-      margin-right: 10px;
+      font-weight: 900;
     }
 
-    .trial-terms {
-      margin-top: 24px;
-      text-align: left;
-      padding: 20px;
-      border-radius: 15px;
-      background: rgba(139,109,246,.08);
-      border: 1px solid rgba(139,109,246,.18);
-    }
+    .trial-note {
+      margin-bottom: 25px;
 
-    .trial-terms h4 {
-      color: var(--purple-light);
-      margin-bottom: 8px;
-    }
+      padding: 18px;
 
-    .trial-terms p {
+      border-radius: 14px;
+
+      background: rgba(138,109,246,.07);
+
+      border: 1px solid rgba(138,109,246,.13);
+
       color: var(--muted);
-      font-size: 14px;
+
+      font-size: 13px;
     }
+
+    .pricing-body .btn {
+      width: 100%;
+    }
+
+    /* ========================
+       FAQ
+    ======================== */
 
     .faq {
-      max-width: 850px;
+      max-width: 860px;
       margin: auto;
     }
 
     details {
-      background: var(--card);
-      border: 1px solid var(--border);
+      margin-bottom: 12px;
+
       padding: 20px 22px;
+
       border-radius: 15px;
-      margin-bottom: 13px;
+
+      background: var(--surface);
+      border: 1px solid var(--border);
     }
 
     summary {
       cursor: pointer;
-      font-weight: 700;
+
+      font-weight: 750;
     }
 
     details p {
-      color: var(--muted);
       margin-top: 12px;
+
+      color: var(--muted);
     }
+
+    /* ========================
+       POLICIES
+    ======================== */
 
     .policy-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 20px;
+
+      gap: 18px;
     }
 
     .policy-card h3 {
-      color: var(--purple-light);
-      margin-bottom: 12px;
+      margin-bottom: 13px;
+
+      color: var(--purple-pale);
     }
 
     .policy-card p {
       margin-bottom: 12px;
     }
 
+    /* ========================
+       CONSENT
+    ======================== */
+
+    .consent-box {
+      max-width: 900px;
+      margin: auto;
+
+      padding: 35px;
+
+      border-radius: 20px;
+
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .consent-box p {
+      color: var(--muted);
+
+      margin-bottom: 12px;
+    }
+
+    /* ========================
+       CTA
+    ======================== */
+
+    .cta {
+      padding-top: 75px;
+    }
+
     .cta-box {
+      padding: 65px 32px;
+
       text-align: center;
-      padding: 65px 30px;
+
       border-radius: 28px;
-      border: 1px solid rgba(139,109,246,.35);
+
       background:
-        linear-gradient(135deg,
-        rgba(111,85,219,.28),
-        rgba(139,109,246,.09));
+        radial-gradient(
+          circle at top,
+          rgba(138,109,246,.23),
+          transparent 58%
+        ),
+        var(--surface);
+
+      border: 1px solid var(--purple-border);
     }
 
     .cta-box h2 {
-      font-size: 45px;
       max-width: 760px;
       margin: auto;
+
+      font-size: clamp(36px,5vw,52px);
+      line-height: 1.08;
     }
 
     .cta-box p {
-      max-width: 650px;
+      max-width: 640px;
       margin: 18px auto 25px;
+
       color: var(--muted);
     }
 
+    /* ========================
+       FOOTER
+    ======================== */
+
     footer {
-      padding: 45px 0;
+      padding: 42px 0;
+
       border-top: 1px solid var(--border);
+
       color: var(--muted);
+
+      font-size: 13px;
     }
 
     .footer-wrap {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
       gap: 25px;
       flex-wrap: wrap;
     }
 
     .footer-links {
       display: flex;
-      gap: 20px;
+
+      gap: 18px;
       flex-wrap: wrap;
     }
 
-    @media(max-width:850px) {
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* ========================
+       MOBILE
+    ======================== */
+
+    @media (max-width: 900px) {
       .nav-links {
         display: none;
-      }
-
-      .audience-grid,
-      .feature-grid,
-      .steps,
-      .onboarding-grid,
-      .policy-grid,
-      .founder-wrap {
-        grid-template-columns: 1fr;
       }
 
       .hero {
         padding-top: 80px;
       }
 
-      .timeline-item {
-        grid-template-columns: 45px 1fr;
+      .hero h1 {
+        letter-spacing: -2px;
       }
 
-      .footer-wrap {
-        flex-direction: column;
-        text-align: center;
+      .value-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .value-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .value-item:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .audience-grid,
+      .card-grid,
+      .steps,
+      .policy-grid,
+      .founder-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase {
+        padding: 38px 24px;
+      }
+
+      .founder-wrap {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand {
+        font-size: 20px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .conversation {
+        padding: 22px;
+      }
+
+      .bubble {
+        max-width: 92%;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .value-item:last-child {
+        border-bottom: none;
+      }
+
+      .pricing-top,
+      .pricing-body {
+        padding-left: 25px;
+        padding-right: 25px;
       }
     }
   </style>
@@ -553,807 +1120,1181 @@
 
 <body>
 
-<nav>
-  <div class="container nav-wrap">
+  <!-- NAVIGATION -->
 
-    <a href="#" class="logo">
-      MyNovaFlow <span>Technologies</span>
-    </a>
+  <nav class="navbar">
+    <div class="container nav-inner">
 
-    <div class="nav-links">
-      <a href="#who">Who It's For</a>
-      <a href="#features">Features</a>
-      <a href="#how">How It Works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-
-      <a
-        class="btn btn-primary"
-        href="https://api.leadconnectorhq.com/widget/bookings/mynovaflow-consultation"
-        target="_blank">
-        Book a Demo
-      </a>
-    </div>
-
-  </div>
-</nav>
-
-
-<main>
-
-<section class="hero">
-
-  <div class="container">
-
-    <div class="badge">
-      AI RECEPTIONIST & BUSINESS AUTOMATION
-    </div>
-
-    <h1>
-      Never Let Another
-      <span>Potential Customer</span>
-      Go Unanswered.
-    </h1>
-
-    <p>
-      MyNovaFlow Technologies helps businesses answer customer
-      questions, capture leads, follow up, and turn more calls,
-      messages and inquiries into booked appointments —
-      even while you're busy.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a
-        class="btn btn-primary"
-        href="https://api.leadconnectorhq.com/widget/bookings/mynovaflow-consultation"
-        target="_blank">
-        Book a Free Demo
+      <a href="#" class="brand">
+        <div class="brand-mark">M</div>
+        MyNova<span>Flow</span>
       </a>
 
-      <a
-        class="btn btn-outline"
-        href="https://demo.mynovaflow.space"
-        target="_blank">
-        View Live Demo
-      </a>
-
-    </div>
-
-    <div class="mini">
-      AI Receptionist • Customer Messaging • Lead Follow-Up • Booking Support
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="who">
-
-  <div class="container">
-
-    <div class="section-label">
-      Who We Help
-    </div>
-
-    <h2 class="section-title">
-      Who Is MyNovaFlow Specifically For?
-    </h2>
-
-    <p class="section-subtitle">
-      Built for service-based businesses that depend on
-      customer conversations, appointments and consistent follow-up.
-    </p>
-
-    <div class="audience-grid">
-
-      <div class="card audience-card">
-        <div class="audience-icon">✨</div>
-        <h3>Beauty Businesses</h3>
-        <p>Salons, hairstylists, estheticians, lash artists, beauty studios and med spas.</p>
-      </div>
-
-      <div class="card audience-card">
-        <div class="audience-icon">📅</div>
-        <h3>Appointment Businesses</h3>
-        <p>Businesses that depend heavily on consultations and scheduled appointments.</p>
-      </div>
-
-      <div class="card audience-card">
-        <div class="audience-icon">📈</div>
-        <h3>Growing Businesses</h3>
-        <p>Companies receiving more inquiries than their team can consistently handle.</p>
-      </div>
-
-      <div class="card audience-card">
-        <div class="audience-icon">💎</div>
-        <h3>Premium Brands</h3>
-        <p>Businesses that want a faster and more professional customer experience.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="features" class="dark-section">
-
-  <div class="container">
-
-    <div class="section-label">
-      Your AI Front Desk
-    </div>
-
-    <h2 class="section-title">
-      Your Business Shouldn't Stop When You're Busy.
-    </h2>
-
-    <p class="section-subtitle">
-      MyNovaFlow helps handle repetitive customer conversations
-      while keeping potential customers moving forward.
-    </p>
-
-    <div class="feature-grid">
-
-      <div class="card">
-        <div class="feature-icon">☎</div>
-        <h3>AI Receptionist</h3>
-        <p>Support incoming customer calls and common questions when you can't answer personally.</p>
-      </div>
-
-      <div class="card">
-        <div class="feature-icon">💬</div>
-        <h3>Customer Messaging</h3>
-        <p>Respond to customer inquiries across supported messaging channels.</p>
-      </div>
-
-      <div class="card">
-        <div class="feature-icon">🧠</div>
-        <h3>Business Knowledge</h3>
-        <p>Train the AI on your services, pricing, policies, hours and FAQs.</p>
-      </div>
-
-      <div class="card">
-        <div class="feature-icon">📅</div>
-        <h3>Booking Support</h3>
-        <p>Help customers move toward your existing booking and appointment process.</p>
-      </div>
-
-      <div class="card">
-        <div class="feature-icon">↗</div>
-        <h3>Lead Follow-Up</h3>
-        <p>Follow up with interested prospects who haven't taken the next step.</p>
-      </div>
-
-      <div class="card">
-        <div class="feature-icon">◎</div>
-        <h3>Customer Tracking</h3>
-        <p>Keep customer conversations and lead information organized.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="how">
-
-  <div class="container">
-
-    <div class="section-label">
-      Simple Process
-    </div>
-
-    <h2 class="section-title">
-      How MyNovaFlow Works
-    </h2>
-
-    <div class="steps">
-
-      <div class="card">
-        <div class="number">1</div>
-        <h3>Customer Reaches Out</h3>
-        <p>A potential customer calls, texts, messages or submits an inquiry.</p>
-      </div>
-
-      <div class="card">
-        <div class="number">2</div>
-        <h3>AI Responds</h3>
-        <p>Your AI receptionist uses your business information to help answer the customer.</p>
-      </div>
-
-      <div class="card">
-        <div class="number">3</div>
-        <h3>Customer Moves Forward</h3>
-        <p>The customer can be guided toward booking, follow-up or the appropriate next step.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="dark-section">
-
-  <div class="container">
-
-    <div class="demo-box">
-
-      <div class="section-label">
-        Live Business Demo
-      </div>
-
-      <h2>
-        See MyNovaFlow In Action.
-      </h2>
-
-      <p>
-        Explore our Ashley Beauty Studio demonstration
-        to see how an AI receptionist experience can
-        work for a service-based business.
-      </p>
-
-      <a
-        class="btn btn-primary"
-        href="https://demo.mynovaflow.space"
-        target="_blank">
-        View Ashley Beauty Studio Demo
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section>
-
-  <div class="container founder-wrap">
-
-    <div class="founder-copy">
-
-      <div class="section-label">
-        Founder & Company
-      </div>
-
-      <h2>
-        Technology Built Around Real Business Problems.
-      </h2>
-
-      <p>
-        MyNovaFlow Technologies was created to help businesses
-        solve a simple but costly problem: potential customers
-        reaching out and not receiving a timely response.
-      </p>
-
-      <p>
-        We build AI-powered customer communication systems
-        designed to support business owners with repetitive
-        inquiries, lead follow-up and booking opportunities.
-      </p>
-
-      <p>
-        Our goal is to help businesses provide a faster,
-        more consistent customer experience without requiring
-        the owner to personally manage every conversation.
-      </p>
-
-    </div>
-
-    <div class="founder-visual">
-
-      <div class="founder-inside">
-        <h3>MyNovaFlow Technologies</h3>
-        <p>AI Receptionist & Business Automation</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="dark-section">
-
-  <div class="container">
-
-    <div class="section-label">
-      Your Next Steps
-    </div>
-
-    <h2 class="section-title">
-      What Happens After You Book?
-    </h2>
-
-    <p class="section-subtitle">
-      We keep the process simple so you know exactly
-      what happens from consultation to launch.
-    </p>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-number">1</div>
-        <div>
-          <h3>Book Your Consultation</h3>
-          <p>Choose a consultation time and provide basic information about your business.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-number">2</div>
-        <div>
-          <h3>Business Discovery</h3>
-          <p>We'll discuss how you currently handle customer calls, messages, leads and bookings.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-number">3</div>
-        <div>
-          <h3>Choose Your System</h3>
-          <p>We'll determine which customer conversations and repetitive processes make sense to automate.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-number">4</div>
-        <div>
-          <h3>Onboarding</h3>
-          <p>You'll provide the business information needed to configure your AI receptionist.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-number">5</div>
-        <div>
-          <h3>Build & Test</h3>
-          <p>Your system is configured and tested before being used with real customers.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-number">6</div>
-        <div>
-          <h3>Launch</h3>
-          <p>Once the system is ready, your MyNovaFlow automation can begin supporting your business.</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section>
-
-  <div class="container">
-
-    <div class="section-label">
-      Client Onboarding
-    </div>
-
-    <h2 class="section-title">
-      You Run Your Business. We Learn How It Works.
-    </h2>
-
-    <p class="section-subtitle">
-      You don't need to understand AI or automation.
-      During onboarding, we collect the information
-      needed to customize your system.
-    </p>
-
-    <div class="onboarding-grid">
-
-      <div class="card">
-        <h3>Business Information</h3>
-        <p>Business name, contact information, locations and operating hours.</p>
-      </div>
-
-      <div class="card">
-        <h3>Services & Pricing</h3>
-        <p>Your services, prices, service duration and important customer information.</p>
-      </div>
-
-      <div class="card">
-        <h3>Policies</h3>
-        <p>Deposits, cancellations, late arrivals, refunds and other business rules.</p>
-      </div>
-
-      <div class="card">
-        <h3>Frequently Asked Questions</h3>
-        <p>The questions your customers repeatedly ask and the answers you want your AI to provide.</p>
-      </div>
-
-      <div class="card">
-        <h3>Booking Process</h3>
-        <p>We review your existing booking process and supported integrations.</p>
-      </div>
-
-      <div class="card">
-        <h3>Communication Preferences</h3>
-        <p>We determine how your AI should communicate and when a human should take over.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="pricing" class="dark-section">
-
-  <div class="container">
-
-    <div class="section-label">
-      Pricing
-    </div>
-
-    <h2 class="section-title">
-      Get Started With MyNovaFlow.
-    </h2>
-
-    <p class="section-subtitle">
-      Start with your custom setup, test the monthly service free for 7 days,
-      then continue at $297 per month.
-    </p>
-
-    <div class="pricing-card">
-
-      <h3>MyNovaFlow AI Receptionist</h3>
-
-      <div class="setup-price">
-        $500
-      </div>
-
-      <div class="setup">
-        One-time setup
-      </div>
-
-      <div class="trial-badge">
-        7-Day Free Trial
-      </div>
-
-      <div class="monthly-price">
-        Then $297 <span>/ month</span>
-      </div>
-
-      <p class="pricing-note">
-        The 7-day free trial applies to the recurring monthly service.
-        The $500 setup fee is separate.
-      </p>
-
-      <ul class="price-list">
-        <li>Custom AI receptionist setup</li>
-        <li>Business knowledge training</li>
-        <li>Customer inquiry automation</li>
-        <li>Lead capture & follow-up setup</li>
-        <li>Booking workflow support</li>
-        <li>System testing & configuration</li>
-      </ul>
-
-      <div class="trial-terms">
-        <h4>7-Day Trial Terms</h4>
-        <p>
-          The $500 setup fee is charged separately and is not included
-          in the free trial. The 7-day trial applies to the recurring
-          MyNovaFlow monthly service. Unless canceled before the trial
-          ends, the payment method on file will be charged $297 and the
-          subscription will continue at $297 per month until canceled.
-        </p>
-      </div>
-
-      <br>
-
-      <a
-        class="btn btn-primary"
-        href="https://api.leadconnectorhq.com/widget/bookings/mynovaflow-consultation"
-        target="_blank">
-        Book Your Free Consultation
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="faq">
-
-  <div class="container">
-
-    <div class="section-label">
-      FAQ
-    </div>
-
-    <h2 class="section-title">
-      Frequently Asked Questions
-    </h2>
-
-    <div class="faq">
-
-      <details>
-        <summary>What is MyNovaFlow Technologies?</summary>
-        <p>
-          MyNovaFlow Technologies provides AI-powered
-          customer communication and automation systems
-          for service-based businesses.
-        </p>
-      </details>
-
-      <details>
-        <summary>How does the 7-day free trial work?</summary>
-        <p>
-          The $500 setup fee covers building and configuring your system.
-          After setup, the recurring MyNovaFlow service includes a
-          7-day free trial. Unless canceled before the trial ends,
-          the monthly subscription begins at $297.
-        </p>
-      </details>
-
-      <details>
-        <summary>Can the AI answer questions about my business?</summary>
-        <p>
-          Yes. Your AI can be configured with information
-          such as services, pricing, policies, business
-          hours and frequently asked questions.
-        </p>
-      </details>
-
-      <details>
-        <summary>Can MyNovaFlow help customers book appointments?</summary>
-        <p>
-          MyNovaFlow can support booking workflows.
-          Exact functionality depends on the booking
-          platform and integrations available to your business.
-        </p>
-      </details>
-
-      <details>
-        <summary>Do I have to replace my existing booking system?</summary>
-        <p>
-          Not necessarily. We review your current setup
-          and determine the best supported way to integrate
-          MyNovaFlow into your existing process.
-        </p>
-      </details>
-
-      <details>
-        <summary>Do I need to understand AI?</summary>
-        <p>
-          No. We handle the technical configuration.
-          You provide the business information needed
-          to customize the system.
-        </p>
-      </details>
-
-      <details>
-        <summary>Does MyNovaFlow guarantee more revenue?</summary>
-        <p>
-          No specific revenue or booking results are guaranteed.
-          MyNovaFlow provides technology designed to improve
-          customer communication and business processes.
-        </p>
-      </details>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="dark-section" id="policies">
-
-  <div class="container">
-
-    <div class="section-label">
-      Legal & Policies
-    </div>
-
-    <h2 class="section-title">
-      Important Information
-    </h2>
-
-    <div class="policy-grid">
-
-      <div class="card policy-card" id="privacy">
-        <h3>Privacy Policy</h3>
-
-        <p>
-          MyNovaFlow Technologies may collect information
-          voluntarily provided through consultations,
-          forms and service setup.
-        </p>
-
-        <p>
-          Information may be used to provide services,
-          respond to inquiries, configure systems and
-          communicate with clients.
-        </p>
-
-        <p>
-          Third-party technology providers may process
-          information when necessary to deliver services.
-        </p>
-      </div>
-
-
-      <div class="card policy-card" id="terms">
-        <h3>Terms of Service</h3>
-
-        <p>
-          MyNovaFlow Technologies provides AI automation
-          and customer communication services.
-        </p>
-
-        <p>
-          Clients are responsible for providing accurate
-          information about their business, services,
-          pricing and policies.
-        </p>
-
-        <p>
-          Features may depend on third-party software
-          providers and available integrations.
-        </p>
-
-        <p>
-          MyNovaFlow does not guarantee specific revenue,
-          sales or booking results.
-        </p>
-      </div>
-
-
-      <div class="card policy-card" id="refund">
-        <h3>Cancellation & Refund Policy</h3>
-
-        <p>
-          The $500 setup fee covers customization,
-          configuration and implementation work.
-        </p>
-
-        <p>
-          Once setup work has begun, setup fees may
-          be non-refundable based on work already completed.
-        </p>
-
-        <p>
-          The 7-day free trial applies only to the recurring
-          monthly service. To avoid the first $297 monthly charge,
-          cancellation must be requested before the trial ends.
-        </p>
-
-        <p>
-          After the monthly subscription begins, ongoing service
-          may be canceled before the next billing cycle according
-          to the client's service agreement.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section>
-
-  <div class="container">
-
-    <div class="section-label">
-      Communications
-    </div>
-
-    <h2 class="section-title">
-      SMS & Calling Consent
-    </h2>
-
-    <div class="demo-box">
-
-      <p>
-        When you voluntarily provide your phone number
-        to MyNovaFlow Technologies, you may consent to
-        receive communications regarding your inquiry,
-        consultation, account or requested services.
-      </p>
-
-      <p>
-        Message frequency may vary. Message and data
-        rates may apply. You may reply STOP to opt out
-        of text messages or HELP for assistance.
-      </p>
-
-      <p>
-        Consent to receive marketing communications
-        is not required as a condition of purchase.
-        Additional consent requirements may apply depending
-        on how a client's own customer communication system
-        is configured.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section>
-
-  <div class="container">
-
-    <div class="cta-box">
-
-      <h2>
-        Ready to Stop Missing Potential Customers?
-      </h2>
-
-      <p>
-        Book a free consultation and see how
-        MyNovaFlow Technologies could work inside
-        your business.
-      </p>
-
-      <div class="hero-buttons">
+      <div class="nav-links">
+        <a href="#who">Who It's For</a>
+        <a href="#features">Solutions</a>
+        <a href="#how">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
 
         <a
-          class="btn btn-primary"
           href="https://api.leadconnectorhq.com/widget/bookings/mynovaflow-consultation"
+          class="btn btn-primary"
           target="_blank">
-          Book Your Free Demo
+          Book a Demo
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          AI RECEPTIONIST & BUSINESS AUTOMATION
+        </div>
+
+        <h1>
+          Never Let Another
+          <span>Potential Customer</span>
+          Go Unanswered.
+        </h1>
+
+        <p class="hero-copy">
+          MyNovaFlow helps service-based businesses respond faster,
+          capture leads, answer customer questions, follow up,
+          and turn more inquiries into booked appointments —
+          without requiring you to manage every conversation yourself.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            href="https://api.leadconnectorhq.com/widget/bookings/mynovaflow-consultation"
+            class="btn btn-primary"
+            target="_blank">
+            Book a Free Demo
+          </a>
+
+          <a
+            href="https://demo.mynovaflow.space"
+            class="btn btn-secondary"
+            target="_blank">
+            View Live Demo
+          </a>
+
+        </div>
+
+        <div class="hero-proof">
+          AI Receptionist · Customer Messaging · Lead Follow-Up · Booking Support
+        </div>
+
+
+        <div class="hero-demo">
+
+          <div class="demo-window">
+
+            <div class="demo-top">
+              <div class="demo-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div>
+                MyNovaFlow AI Receptionist
+              </div>
+            </div>
+
+
+            <div class="conversation">
+
+              <div class="bubble customer">
+                Hi, how much are knotless braids?
+              </div>
+
+              <div class="bubble ai">
+                Hi! Knotless braids start at $180 and take
+                approximately 4 hours. Would you like help
+                booking an appointment?
+              </div>
+
+              <div class="bubble customer">
+                Yes. Do you have anything Friday afternoon?
+              </div>
+
+              <div class="bubble ai">
+                Absolutely. I can help guide you through
+                the available booking options.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VALUE STRIP -->
+
+    <div class="value-strip">
+
+      <div class="container">
+
+        <div class="value-grid">
+
+          <div class="value-item">
+            <strong>24/7</strong>
+            <span>Customer support potential</span>
+          </div>
+
+          <div class="value-item">
+            <strong>AI</strong>
+            <span>Trained on your business</span>
+          </div>
+
+          <div class="value-item">
+            <strong>Fast</strong>
+            <span>Customer response experience</span>
+          </div>
+
+          <div class="value-item">
+            <strong>More</strong>
+            <span>Opportunities captured</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- WHO IT'S FOR -->
+
+    <section id="who">
+
+      <div class="container">
+
+        <div class="section-label">
+          Who We Help
+        </div>
+
+        <h2 class="section-title">
+          Built for Businesses That Depend on Customer Conversations.
+        </h2>
+
+        <p class="section-copy">
+          MyNovaFlow is designed for service-based businesses
+          that receive frequent calls, messages, questions,
+          consultations and appointment requests.
+        </p>
+
+
+        <div class="audience-grid">
+
+          <div class="card audience-card">
+            <div class="card-icon">✦</div>
+            <h3>Beauty Businesses</h3>
+            <p>
+              Salons, lash artists, hairstylists, estheticians,
+              beauty studios and med spas.
+            </p>
+          </div>
+
+
+          <div class="card audience-card">
+            <div class="card-icon">◫</div>
+            <h3>Appointment Businesses</h3>
+            <p>
+              Businesses built around consultations,
+              services and scheduled appointments.
+            </p>
+          </div>
+
+
+          <div class="card audience-card">
+            <div class="card-icon">↗</div>
+            <h3>Growing Companies</h3>
+            <p>
+              Businesses receiving more inquiries than
+              their team can consistently answer.
+            </p>
+          </div>
+
+
+          <div class="card audience-card">
+            <div class="card-icon">◇</div>
+            <h3>Premium Brands</h3>
+            <p>
+              Businesses that want a faster,
+              more polished customer experience.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SOLUTIONS -->
+
+    <section id="features" class="section-dark">
+
+      <div class="container">
+
+        <div class="section-label">
+          MyNovaFlow Solutions
+        </div>
+
+        <h2 class="section-title">
+          An AI Front Desk Built Around Your Business.
+        </h2>
+
+        <p class="section-copy">
+          Instead of forcing you to rebuild your business,
+          MyNovaFlow is designed to support the systems
+          and processes you already use whenever possible.
+        </p>
+
+
+        <div class="card-grid">
+
+          <div class="card">
+            <div class="card-icon">☎</div>
+            <h3>AI Receptionist</h3>
+            <p>
+              Support customer calls and repetitive
+              questions when you cannot answer personally.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">💬</div>
+            <h3>Customer Messaging</h3>
+            <p>
+              Keep customer conversations moving
+              through supported communication channels.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">⌁</div>
+            <h3>Business Knowledge</h3>
+            <p>
+              Train the AI using your services,
+              prices, policies, hours and FAQs.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">▣</div>
+            <h3>Booking Support</h3>
+            <p>
+              Help guide customers toward your
+              supported booking and appointment process.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">↻</div>
+            <h3>Lead Follow-Up</h3>
+            <p>
+              Follow up with interested prospects
+              who haven't taken the next step.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">◎</div>
+            <h3>Lead Organization</h3>
+            <p>
+              Keep customer information,
+              conversations and opportunities organized.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section id="how">
+
+      <div class="container">
+
+        <div class="section-label">
+          How It Works
+        </div>
+
+        <h2 class="section-title">
+          From Customer Inquiry to Action in Three Steps.
+        </h2>
+
+        <p class="section-copy">
+          MyNovaFlow helps your business create a smoother
+          customer journey without adding more repetitive work.
+        </p>
+
+
+        <div class="steps">
+
+          <div class="card">
+
+            <div class="step-number">1</div>
+
+            <h3>
+              Customer Reaches Out
+            </h3>
+
+            <p>
+              A potential customer calls, texts,
+              messages or submits an inquiry.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="step-number">2</div>
+
+            <h3>
+              AI Responds
+            </h3>
+
+            <p>
+              Your AI receptionist uses your business
+              information to understand and assist the customer.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="step-number">3</div>
+
+            <h3>
+              Customer Moves Forward
+            </h3>
+
+            <p>
+              The customer can be guided toward booking,
+              follow-up or the appropriate next step.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LIVE DEMO -->
+
+    <section class="section-dark">
+
+      <div class="container">
+
+        <div class="showcase">
+
+          <div class="section-label">
+            Live Demo
+          </div>
+
+          <h2>
+            See MyNovaFlow in a Real Business Example.
+          </h2>
+
+          <p>
+            Explore our Ashley Beauty Studio demonstration
+            to see how an AI receptionist experience can
+            support a service-based business.
+          </p>
+
+          <a
+            href="https://demo.mynovaflow.space"
+            class="btn btn-primary"
+            target="_blank">
+            Open Ashley Beauty Studio Demo
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOUNDER -->
+
+    <section>
+
+      <div class="container founder-wrap">
+
+        <div class="founder-copy">
+
+          <div class="section-label">
+            Founder & Company
+          </div>
+
+          <h2 class="section-title">
+            Built Around Real Business Problems.
+          </h2>
+
+          <p>
+            MyNovaFlow was created to solve a simple but costly
+            problem: customers reaching out while business owners
+            are too busy to respond quickly.
+          </p>
+
+          <p>
+            Our goal is to help businesses use AI to support
+            repetitive customer communication, lead follow-up,
+            appointment opportunities and everyday front-desk tasks.
+          </p>
+
+          <p>
+            MyNovaFlow is built to support the business owner —
+            not make the customer experience feel cold or complicated.
+          </p>
+
+        </div>
+
+
+        <div class="founder-box">
+
+          <div class="founder-inner">
+
+            <h3>
+              MyNovaFlow
+            </h3>
+
+            <p>
+              AI Receptionist & Business Automation
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHAT HAPPENS AFTER BOOKING -->
+
+    <section class="section-dark">
+
+      <div class="container">
+
+        <div class="section-label">
+          What Happens Next
+        </div>
+
+        <h2 class="section-title">
+          What Happens After You Book?
+        </h2>
+
+        <p class="section-copy">
+          You'll know exactly what happens from your
+          first consultation through launch.
+        </p>
+
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-number">
+              1
+            </div>
+
+            <div>
+              <h3>Book Your Consultation</h3>
+              <p>
+                Choose a consultation time and tell us
+                a little about your business.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-number">
+              2
+            </div>
+
+            <div>
+              <h3>Business Discovery</h3>
+              <p>
+                We learn how you currently handle
+                calls, messages, leads and bookings.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-number">
+              3
+            </div>
+
+            <div>
+              <h3>Onboarding</h3>
+              <p>
+                You provide your services, pricing,
+                policies, FAQs and booking information.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-number">
+              4
+            </div>
+
+            <div>
+              <h3>Build & Configure</h3>
+              <p>
+                Your MyNovaFlow system is customized
+                around your business.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-number">
+              5
+            </div>
+
+            <div>
+              <h3>Test & Review</h3>
+              <p>
+                We test the customer experience before
+                your system is used with real customers.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-number">
+              6
+            </div>
+
+            <div>
+              <h3>Launch</h3>
+              <p>
+                Once ready, your MyNovaFlow system
+                begins supporting your business.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CLIENT ONBOARDING -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          Client Onboarding
+        </div>
+
+        <h2 class="section-title">
+          You Know Your Business. We Build Around It.
+        </h2>
+
+        <p class="section-copy">
+          You don't need to understand AI or automation.
+          We collect the information needed to customize
+          your system.
+        </p>
+
+
+        <div class="card-grid">
+
+          <div class="card">
+            <div class="card-icon">01</div>
+            <h3>Business Details</h3>
+            <p>
+              Business name, locations,
+              hours and contact information.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">02</div>
+            <h3>Services & Pricing</h3>
+            <p>
+              Your services, prices,
+              durations and important service details.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">03</div>
+            <h3>Policies</h3>
+            <p>
+              Deposits, cancellations,
+              late arrivals and other business rules.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">04</div>
+            <h3>FAQs</h3>
+            <p>
+              The questions your customers ask repeatedly
+              and how you want them answered.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">05</div>
+            <h3>Booking Process</h3>
+            <p>
+              We review how your business currently
+              manages appointments and bookings.
+            </p>
+          </div>
+
+
+          <div class="card">
+            <div class="card-icon">06</div>
+            <h3>Communication Style</h3>
+            <p>
+              We define how your AI should communicate
+              and when a human should take over.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRICING -->
+
+    <section id="pricing" class="section-dark">
+
+      <div class="container">
+
+        <div class="section-label">
+          Simple Pricing
+        </div>
+
+        <h2 class="section-title">
+          Start With Your Custom MyNovaFlow System.
+        </h2>
+
+        <p class="section-copy">
+          Pay for your setup first, experience the recurring
+          service free for 7 days, then continue monthly.
+        </p>
+
+
+        <div class="pricing-card">
+
+          <div class="pricing-top">
+
+            <h3>
+              MyNovaFlow AI Receptionist
+            </h3>
+
+            <div class="setup-price">
+              $500
+            </div>
+
+            <div class="setup-label">
+              One-time setup
+            </div>
+
+            <div class="trial-pill">
+              7-Day Free Trial
+            </div>
+
+            <div class="monthly">
+              Then $297
+              <small>/ month</small>
+            </div>
+
+          </div>
+
+
+          <div class="pricing-body">
+
+            <ul class="pricing-list">
+
+              <li>
+                Custom AI receptionist configuration
+              </li>
+
+              <li>
+                Business knowledge setup
+              </li>
+
+              <li>
+                Customer inquiry automation
+              </li>
+
+              <li>
+                Lead capture and follow-up setup
+              </li>
+
+              <li>
+                Booking workflow support
+              </li>
+
+              <li>
+                System testing and configuration
+              </li>
+
+            </ul>
+
+
+            <div class="trial-note">
+              <strong>7-Day Trial:</strong>
+              The $500 setup fee is separate from the free trial.
+              The 7-day trial applies to the recurring monthly service.
+              Unless canceled before the trial ends, the subscription
+              begins at $297/month and continues until canceled.
+            </div>
+
+
+            <a
+              href="https://api.leadconnectorhq.com/widget/bookings/mynovaflow-consultation"
+              class="btn btn-primary"
+              target="_blank">
+              Book Your Free Consultation
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section id="faq">
+
+      <div class="container">
+
+        <div class="section-label">
+          Frequently Asked Questions
+        </div>
+
+        <h2 class="section-title">
+          Questions Before Getting Started?
+        </h2>
+
+        <p class="section-copy">
+          Here's what businesses usually want to know.
+        </p>
+
+
+        <div class="faq">
+
+          <details>
+            <summary>
+              What exactly is MyNovaFlow?
+            </summary>
+
+            <p>
+              MyNovaFlow is an AI-powered customer communication
+              and business automation service designed to help
+              service-based businesses respond to customers,
+              organize leads, follow up and support booking workflows.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              How does the 7-day free trial work?
+            </summary>
+
+            <p>
+              The $500 setup fee covers the customization
+              and setup of your system. The recurring monthly
+              service then includes a 7-day free trial.
+              Unless canceled before the trial ends,
+              the monthly subscription begins at $297.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Can the AI answer questions about my business?
+            </summary>
+
+            <p>
+              Yes. Your system can be configured using
+              your services, pricing, hours, policies,
+              frequently asked questions and other
+              business information.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Can MyNovaFlow help customers book appointments?
+            </summary>
+
+            <p>
+              Yes, depending on your booking platform
+              and the integrations available.
+              We review your current setup during onboarding.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Do I have to replace my current booking system?
+            </summary>
+
+            <p>
+              Not necessarily. MyNovaFlow is designed to work
+              around existing business processes whenever
+              the platform and integration options allow it.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Do I need to understand AI or automation?
+            </summary>
+
+            <p>
+              No. You provide the business information.
+              MyNovaFlow handles the system configuration.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Does MyNovaFlow guarantee more revenue?
+            </summary>
+
+            <p>
+              No specific revenue, sales or booking results
+              are guaranteed. MyNovaFlow provides technology
+              designed to support customer communication
+              and business processes.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- POLICIES -->
+
+    <section class="section-dark" id="policies">
+
+      <div class="container">
+
+        <div class="section-label">
+          Legal & Policies
+        </div>
+
+        <h2 class="section-title">
+          Important Information.
+        </h2>
+
+        <p class="section-copy">
+          Please review these general service terms
+          before purchasing MyNovaFlow services.
+        </p>
+
+
+        <div class="policy-grid">
+
+          <div class="card policy-card" id="privacy">
+
+            <h3>
+              Privacy Policy
+            </h3>
+
+            <p>
+              MyNovaFlow may collect information voluntarily
+              provided through consultations, forms,
+              onboarding and service setup.
+            </p>
+
+            <p>
+              Information may be used to provide services,
+              configure systems, communicate with clients
+              and respond to inquiries.
+            </p>
+
+            <p>
+              Third-party technology providers may process
+              information when necessary to deliver
+              MyNovaFlow services.
+            </p>
+
+          </div>
+
+
+          <div class="card policy-card" id="terms">
+
+            <h3>
+              Terms of Service
+            </h3>
+
+            <p>
+              MyNovaFlow provides AI automation,
+              customer communication and related
+              technology services.
+            </p>
+
+            <p>
+              Clients are responsible for providing
+              accurate information about their services,
+              pricing, policies and business operations.
+            </p>
+
+            <p>
+              Features may depend on third-party
+              software platforms and available integrations.
+            </p>
+
+          </div>
+
+
+          <div class="card policy-card" id="refund">
+
+            <h3>
+              Cancellation & Refund Policy
+            </h3>
+
+            <p>
+              The $500 setup fee covers customization,
+              implementation and configuration work.
+            </p>
+
+            <p>
+              Once setup work has begun,
+              setup fees may be non-refundable
+              based on work already completed.
+            </p>
+
+            <p>
+              To avoid the first $297 monthly charge,
+              the recurring service must be canceled
+              before the 7-day trial ends.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SMS / CALLING CONSENT -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          Communications
+        </div>
+
+        <h2 class="section-title">
+          SMS & Calling Consent.
+        </h2>
+
+        <p class="section-copy">
+          Transparency matters when communicating
+          with clients and customers.
+        </p>
+
+
+        <div class="consent-box">
+
+          <p>
+            By voluntarily providing your phone number
+            to MyNovaFlow, you may agree to receive calls
+            and text messages regarding your inquiry,
+            consultation, account or requested services.
+          </p>
+
+          <p>
+            Message frequency may vary.
+            Message and data rates may apply.
+            Reply STOP to opt out of text messages
+            and HELP for assistance.
+          </p>
+
+          <p>
+            Consent to receive marketing communications
+            is not required as a condition of purchase.
+            Additional consent requirements may apply
+            when MyNovaFlow systems communicate
+            with a client's own customers.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="cta-box">
+
+          <div class="section-label">
+            Get Started
+          </div>
+
+          <h2>
+            Ready to Stop Missing Potential Customers?
+          </h2>
+
+          <p>
+            Book your free consultation and see
+            how MyNovaFlow could fit into your business.
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="https://api.leadconnectorhq.com/widget/bookings/mynovaflow-consultation"
+              class="btn btn-primary"
+              target="_blank">
+              Book Your Free Demo
+            </a>
+
+            <a
+              href="https://demo.mynovaflow.space"
+              class="btn btn-secondary"
+              target="_blank">
+              View Live Demo
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-wrap">
+
+      <div>
+        © 2026 MyNovaFlow. All rights reserved.
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#privacy">
+          Privacy Policy
         </a>
 
-        <a
-          class="btn btn-outline"
-          href="https://demo.mynovaflow.space"
-          target="_blank">
-          View Live Demo
+        <a href="#terms">
+          Terms of Service
+        </a>
+
+        <a href="#refund">
+          Cancellation & Refunds
+        </a>
+
+        <a href="#faq">
+          FAQ
         </a>
 
       </div>
 
     </div>
 
-  </div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-  <div class="container footer-wrap">
-
-    <div>
-      © 2026 MyNovaFlow Technologies. All rights reserved.
-    </div>
-
-    <div class="footer-links">
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms of Service</a>
-      <a href="#refund">Cancellation & Refunds</a>
-      <a href="#faq">FAQ</a>
-    </div>
-
-  </div>
-
-</footer>
+  </footer>
 
 </body>
 </html>
